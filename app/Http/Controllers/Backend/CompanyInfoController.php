@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\ContactForm;
+use App\Http\Controllers\Controller;
+use App\Models\CompanyInfo;
 use Illuminate\Http\Request;
 
-class ContactFormController extends Controller
+class CompanyInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class ContactFormController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ContactForm $contactForm)
+    public function show(CompanyInfo $companyInfo)
     {
         //
     }
@@ -42,7 +43,7 @@ class ContactFormController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ContactForm $contactForm)
+    public function edit(CompanyInfo $companyInfo)
     {
         //
     }
@@ -50,7 +51,7 @@ class ContactFormController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ContactForm $contactForm)
+    public function update(Request $request, CompanyInfo $companyInfo)
     {
         //
     }
@@ -58,7 +59,7 @@ class ContactFormController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ContactForm $contactForm)
+    public function destroy(CompanyInfo $companyInfo)
     {
         //
     }

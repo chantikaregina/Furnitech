@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\Background;
+use App\Http\Controllers\Controller;
+use App\Models\ContactForm;
 use Illuminate\Http\Request;
 
-class BackgroundController extends Controller
+class ContactFormController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class BackgroundController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Background $background)
+    public function show(ContactForm $contactForm)
     {
         //
     }
@@ -42,7 +43,7 @@ class BackgroundController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Background $background)
+    public function edit(ContactForm $contactForm)
     {
         //
     }
@@ -50,7 +51,7 @@ class BackgroundController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Background $background)
+    public function update(Request $request, ContactForm $contactForm)
     {
         //
     }
@@ -58,7 +59,7 @@ class BackgroundController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Background $background)
+    public function destroy(ContactForm $contactForm)
     {
         //
     }

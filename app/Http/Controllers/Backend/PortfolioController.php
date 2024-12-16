@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\Testimoni;
+use App\Http\Controllers\Controller;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
-class TestimoniController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class TestimoniController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Testimoni $testimoni)
+    public function show(Portfolio $portfolio)
     {
         //
     }
@@ -42,7 +43,7 @@ class TestimoniController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Testimoni $testimoni)
+    public function edit(Portfolio $portfolio)
     {
         //
     }
@@ -50,7 +51,7 @@ class TestimoniController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Testimoni $testimoni)
+    public function update(Request $request, Portfolio $portfolio)
     {
         //
     }
@@ -58,7 +59,7 @@ class TestimoniController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Testimoni $testimoni)
+    public function destroy(Portfolio $portfolio)
     {
         //
     }

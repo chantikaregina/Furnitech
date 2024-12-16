@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\CompanyInfo;
+use App\Http\Controllers\Controller;
+use App\Models\Background;
 use Illuminate\Http\Request;
 
-class CompanyInfoController extends Controller
+class BackgroundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class CompanyInfoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CompanyInfo $companyInfo)
+    public function show(Background $background)
     {
         //
     }
@@ -42,7 +43,7 @@ class CompanyInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CompanyInfo $companyInfo)
+    public function edit(Background $background)
     {
         //
     }
@@ -50,7 +51,7 @@ class CompanyInfoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CompanyInfo $companyInfo)
+    public function update(Request $request, Background $background)
     {
         //
     }
@@ -58,7 +59,7 @@ class CompanyInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CompanyInfo $companyInfo)
+    public function destroy(Background $background)
     {
         //
     }
