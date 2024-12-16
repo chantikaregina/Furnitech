@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contact_forms', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_formulir_kontak')->primary()->autoIncrement();
+            $table->string('nama_pengirim', 50);
+            $table->string('email_pengirim', 50);
+            $table->text('pesan');
+            $table->string('nomer_telepon', 15);
             $table->timestamps();
         });
     }

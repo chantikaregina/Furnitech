@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('backgrounds', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_background')->primary()->autoIncrement();
+            $table->string('nama_gambar', 100);
+            $table->string('kategori', 100);
             $table->timestamps();
         });
     }
