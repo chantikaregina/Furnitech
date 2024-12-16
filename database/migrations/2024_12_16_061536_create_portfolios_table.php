@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('portfolios', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_portfolio')->primary()->autoIncrement();
+            $table->string('project_name', 100);
+            $table->text('deskripsi');
+            $table->date('project_date');
+            $table->string('foto');
+
             $table->timestamps();
         });
     }

@@ -12,7 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('company_infos', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_company_info')->primary()->autoIncrement();
+            $table->string('company_name', 100);
+            $table->string('slogan', 150);
+            $table->text('deskripsi');
+            $table->integer('tahun_berdiri');
+            $table->string('alamat', 100);
+            $table->string('email', 100);
+            $table->string('telepon', 12);
+            $table->string('logo');
+
             $table->timestamps();
         });
     }
