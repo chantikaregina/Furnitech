@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('project_name', 100);
             $table->text('deskripsi');
             $table->date('project_date');
-            $table->string('foto');
+            $table->string('foto')->nullable();
 
             $table->timestamps();
         });

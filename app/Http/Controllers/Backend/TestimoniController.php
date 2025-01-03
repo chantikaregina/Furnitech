@@ -8,52 +8,48 @@ use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function testimoni()
     {
-        //
+        $testimonis = Testimoni::all();
+        return view('backend.testimoni', compact('testimonis'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function edit(string $id)
     {
-        //
+        $testimoni = Testimoni::find($id);
+        if (!$testimoni) {
+            return back();
+        }
+        return view('backend.testimoni_edit', compact('testimoni'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(Request $request, string $id)
     {
-        //
+
+        $testimoni = Testimoni::find($id);
+
+        $request->validate([
+            'nama_pelanggan' => 'required',
+            'testimoni' => 'required',
+            'rating' => 'required',
+        ]);
+
+        $testimoni->update([
+            'nama_pelanggan' => $request->nama_pelanggan,
+            'testimoni' => $request->testimoni,
+            'rating' => $request->rating,
+        ]);
+
+        return redirect()->route('testimoni')->with('success', 'Testimoni Berhasil di Update');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Testimoni $testimoni)
+    public function delete(Request $request, $id)
     {
-        //
-    }
+        $testimoni = Testimoni::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Testimoni $testimoni)
-    {
-        //
-    }
+        $testimoni->delete();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Testimoni $testimoni)
-    {
-        //
+        return redirect()->route('testimoni')->with('success', 'Testimoni Berhasil di Hapus');
     }
 
     /**

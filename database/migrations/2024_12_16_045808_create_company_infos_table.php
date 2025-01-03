@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('alamat', 100);
             $table->string('email', 100);
             $table->string('telepon', 12);
-            $table->string('logo');
+            $table->string('logo')->nullable();
 
             $table->timestamps();
         });
