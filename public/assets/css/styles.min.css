@@ -16592,8 +16592,8 @@ textarea.form-control-lg {
   font-size: 21px;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover {
-  background-color: rgba(41, 82, 255, 0.1);
-  color: #2952ff;
+  background-color: rgba(156, 118, 100, 0.15);
+  color: #9c7664;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover.has-arrow::after {
   border-color: #2952ff;
@@ -16606,7 +16606,7 @@ textarea.form-control-lg {
 }
 .sidebar-nav ul .sidebar-item.selected > .sidebar-link.active, .sidebar-nav ul .sidebar-item.selected > .sidebar-link,
 .sidebar-nav ul .sidebar-item > .sidebar-link.active {
-  background-color: #2952ff;
+  background-color: #9c7664;
   color: #fff;
 }
 .sidebar-nav .sidebar-list .sidebar-list-item {

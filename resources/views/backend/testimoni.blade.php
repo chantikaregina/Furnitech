@@ -34,8 +34,6 @@
                                     <td>{{ $testimoni->testimoni }}</td>
                                     <td>{{ $testimoni->rating }}</td>
                                     <td>
-                                        <a href="{{route('testimoni.edit', $testimoni->id_testimoni)}}"
-                                            class="btn btn-primary btn-sm">Edit</a>
                                         <a href="{{route('testimoni.delete', $testimoni->id_testimoni)}}"
                                             onclick="return confirm('Yakin Ingin Hapus Data?')"
                                             class="btn btn-danger btn-sm">Hapus</a>

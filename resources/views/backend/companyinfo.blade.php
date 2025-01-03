@@ -21,7 +21,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Perusahaan</th>
-                                <th scope="col">Slogan</th>
+                                {{-- <th scope="col">Slogan</th> --}}
                                 <th scope="col">Deskripsi</th>
                                 <th scope="col">Tahun Berdiri</th>
                                 <th scope="col">Alamat</th>
@@ -36,8 +36,8 @@
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $companyinfo->company_name }}</td>
-                                    <td>{{ $companyinfo->slogan }}</td>
-                                    <td>{{ $companyinfo->deskripsi }}</td>
+                                    {{-- <td>{{ $companyinfo->slogan }}</td> --}}
+                                    <td>{{ Str::limit($companyinfo->deskripsi, 10, '...') }}</td>
                                     <td>{{ $companyinfo->tahun_berdiri }}</td>
                                     <td>{{ $companyinfo->alamat }}</td>
                                     <td>{{ $companyinfo->email }}</td>

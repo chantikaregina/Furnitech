@@ -46,8 +46,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/service/delete/{id_service}', [serviceController::class, 'delete'])->name('service.delete');
 
     Route::get('/testimoni', [TestimoniController ::class, 'testimoni'])->name('testimoni');
-    Route::get('/testimoni/edit/{id_testimoni}', [TestimoniController::class, 'edit'])->name('testimoni.edit');
-    Route::put('/testimoni/edit/{id_testimoni}', [TestimoniController::class, 'update'])->name('testimoni.update');
     Route::get('/testimoni/delete/{id_testimoni}', [TestimoniController::class, 'delete'])->name('testimoni.delete');
 
 
