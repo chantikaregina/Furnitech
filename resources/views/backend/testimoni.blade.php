@@ -16,7 +16,7 @@
                 @endif
                 <h6 class="mb-4">Testimoni</h6>
                 <div class="table-responsive">
-                    <table class="table" id="service">
+                    <table class="table" id="testimoni">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>

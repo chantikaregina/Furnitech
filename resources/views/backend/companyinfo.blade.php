@@ -37,7 +37,7 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $companyinfo->company_name }}</td>
                                     {{-- <td>{{ $companyinfo->slogan }}</td> --}}
-                                    <td>{{ Str::limit($companyinfo->deskripsi, 10, '...') }}</td>
+                                    <td>{{ Str::limit($companyinfo->deskripsi, 10, '...') }}</td> 
                                     <td>{{ $companyinfo->tahun_berdiri }}</td>
                                     <td>{{ $companyinfo->alamat }}</td>
                                     <td>{{ $companyinfo->email }}</td>
