@@ -6,6 +6,10 @@ use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\TestimoniController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
+use App\Http\Controllers\frontend\ServiceController as FrontendServiceController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 
@@ -51,3 +55,8 @@ Route::middleware(['auth'])->group(function () {
 
 
 });
+
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/service/details', [FrontendServiceController::class, 'service'])->name('service.details');
+Route::get('/portfolio/details', [FrontendPortfolioController::class, 'portfolio'])->name('portfolio.details');
+
