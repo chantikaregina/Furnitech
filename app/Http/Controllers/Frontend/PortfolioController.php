@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
-    public function portfolio(){
-     
-        $portfolios = Portfolio::all();
-        return view('frontend.portfolio_details', compact('portfolios'));
+    public function portfolio($id){
+
+        $portfolio = Portfolio::find($id);
+        return view('frontend.portfolio_details', compact('portfolio'));
     }
 }
