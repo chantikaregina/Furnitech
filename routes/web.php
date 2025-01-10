@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/service/details', [FrontendServiceController::class, 'service'])->name('service.details');
+Route::get('/service/details/{id}', [FrontendServiceController::class, 'service'])->name('service.details');
 Route::post('/testimoni', [HomeController::class, 'testimoni'])->name('testimoni');
 Route::get('/portfolio/details/{id}', [FrontendPortfolioController::class, 'portfolio'])->name('portfolio.details');
 

@@ -20,11 +20,13 @@
                     <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon-box">
                             <i class="bi bi-binoculars"></i>
-                            <h3><a href="{{ route('service.details') }}">Lorem Ipsum</a></h3>
+                            <!-- Menggunakan properti 'name' dari objek $service untuk menampilkan nama layanan -->
+                            <h3><a href="{{ route('service.details', $service->id_service) }}">{{ $service->company_name }}</a></h3>
                         </div>
                     </div>
                 @endforeach
             </div>
+
         </div>
 
         </div>

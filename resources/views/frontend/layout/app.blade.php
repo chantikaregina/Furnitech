@@ -55,7 +55,6 @@
                     <li><a href="{{ route('home') }}" class="active" style="color: rgba(0, 0, 0, 0.8);">Home<br></a>
                     </li>
                     <li><a href="#portfolio" style="color: rgba(0, 0, 0, 0.8);">Portfolio</a></li>
-                    <li><a href="{{ route('service.details') }}" style="color: rgba(0, 0, 0, 0.8);">Services</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -73,31 +72,38 @@
 
     <footer id="footer" class="footer dark-background">
 
-        <div class="footer-top">
+            <div class="footer-top">
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-4 col-md-6 footer-about">
                         <a href="index.html" class="logo d-flex align-items-center">
-                            <span class="sitename">{{ $companyInfo->company_name }}</span>
+                            <span class="sitename">
+                                @if($companyInfo && $companyInfo->company_name) 
+                                    {{ $companyInfo->company_name }}
+                                @else
+                                    Name tidak ditemukan
+                                @endif
+                            </span>
                         </a>
+
                         <div class="footer-contact pt-3">
                             <p><strong>Alamat</strong></p>
                             <p>
-                                @if ($companyInfo->alamat)
+                                @if ($companyInfo && $companyInfo->alamat)
                                     {{ $companyInfo->alamat }}
                                 @else
                                     Alamat Kosong
                                 @endif
                             </p>
                             <p class="mt-3"><strong>Phone:</strong> <span>
-                                    @if ($companyInfo->telepon)
+                                    @if ($companyInfo && $companyInfo->telepon)
                                         {{ $companyInfo->telepon }}
                                     @else
                                         Telepon Kosong
                                     @endif
                                 </span></p>
                             <p><strong>Email:</strong> <span>
-                                    @if ($companyInfo->email)
+                                    @if ($companyInfo && $companyInfo->email)
                                         {{ $companyInfo->email }}
                                     @else
                                         Email Kosong
@@ -111,10 +117,10 @@
                             <a href=""><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+
 
         <div class="copyright">
             <div class="container text-center">
