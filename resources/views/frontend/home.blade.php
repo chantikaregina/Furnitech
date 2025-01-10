@@ -45,10 +45,10 @@
                 <div class="col-lg-6 order-2 order-lg-1 content">
                     <h3 style="font-size: 32px;">get to know furniture</h3>
                     <p style="font-size: 20px;">
-                        Furnitech adalah perusahaan inovatif yang bergerak di bidang desain, produksi, dan distribusi
-                        furnitur berkualitas tinggi. Berdiri sejak 2024, kami berkomitmen untuk menghadirkan
-                        produk furnitur yang menggabungkan estetika modern, kenyamanan, dan fungsionalitas, sesuai dengan
-                        kebutuhan pelanggan kami.
+                        Furnitech is an innovative company engaged in the design, production and distribution of
+                        of high-quality furniture. Established since 2024, we are committed to delivering
+                        furniture products that combine modern aesthetics, comfort, and functionality, according to the
+                        the needs of our customers.
                     </p>
                     <p style="font-size: 20px;">
                         Our achievements would not have been possible without your help:
@@ -161,8 +161,8 @@
                         <i class="bi bi-archive flex-shrink-0"></i>
                         <div>
                             <h4>Our Vision</h4>
-                            <p style="font-size: 18px;">Menjadi penyedia solusi furnitur terdepan yang menginspirasi gaya
-                                hidup modern dengan inovasi, kualitas, dan keberlanjutan.</p>
+                            <p style="font-size: 18px;">To be the leading provider of furniture solutions that inspire modern lifestyles with innovation, quality and sustainability.
+                                lifestyle with innovation, quality and sustainability.</p>
                         </div>
                     </div><!-- End Features Item-->
 
@@ -172,19 +172,19 @@
                             <h4>Our Mission</h4>
                             <ul>
                                 <li style="list-style-type: disc;"><span>
-                                        <p style="font-size: 18px;">Menyediakan Furnitur Berkualitas Tinggi.
-                                            Menghadirkan produk furnitur dengan desain modern, material premium, dan daya
-                                            tahan tinggi untuk memenuhi kebutuhan pelanggan.</p>
+                                        <p style="font-size: 18px;">Providing High Quality Furniture.
+                                            Delivering furniture products with modern designs, premium materials, and high
+                                            durability to meet customer needs.</p>
                                     </span></li>
                                 <li style="list-style-type: disc;"><span>
-                                        <p style="font-size: 18px;">Mengutamakan Kepuasan Pelanggan.
-                                            Memberikan layanan terbaik dengan fokus pada kebutuhan dan kenyamanan pelanggan,
-                                            menciptakan pengalaman belanja yang memuaskan.</p>
+                                        <p style="font-size: 18px;">Prioritizing Customer Satisfaction.
+                                            Providing the best service with a focus on customer needs and convenience,
+                                            creating a satisfying shopping experience.</p>
                                     </span></li>
                                 <li style="list-style-type: disc;"><span>
-                                        <p style="font-size: 18px;">Mendorong Inovasi dalam Desain.
-                                            Terus menciptakan furnitur fungsional yang memadukan estetika, kenyamanan, dan
-                                            efisiensi ruang.</p>
+                                        <p style="font-size: 18px;">Driving Innovation in Design.
+                                            Continuing to create functional furniture that combines aesthetics, comfort, and space
+                                            space efficiency.</p>
                                     </span></li>
                             </ul>
                         </div>
@@ -233,12 +233,12 @@
                 <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($portfolios as $portfolio)
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <img src="{{ asset('assets_two/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('storage/' . $portfolio->foto) }}"
+                                class="img-fluid" alt="" style="width: 450px; height: 450px; object-fit: cover;">
                             <div class="portfolio-info">
                                 <h4>App 1</h4>
                                 <p>Lorem ipsum, dolor sit</p>
-                                <a href="{{ asset('assets_two/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
+                                <a href="{{ asset('storage/' . $portfolio->foto) }}"
                                     title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="{{ route('portfolio.details', $portfolio->id_portfolio) }}" title="More Details"
@@ -309,87 +309,36 @@
 <!-- Team Section -->
 <section id="team" class="team section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
     <h2>Team</h2>
-    <p>our Team</p>
-  </div><!-- End Section Title -->
+    <p>Our Team</p>
+</div><!-- End Section Title -->
 
-  <div class="container">
+<div class="container">
 
-    <div class="row gy-4">
+    <div class="row gy-4 justify-content-center">
 
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{{ asset('assets_two/img/team/team-1.jpg') }}" class="img-fluid" alt="">
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Walter White</h4>
-            <span>Chief Executive Officer</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{{ asset('assets_two/img/team/team-2.jpg') }}" class="img-fluid" alt="">
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Sarah Jhonson</h4>
-            <span>Product Manager</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{{ asset('assets_two/img/team/team-3.jpg') }}" class="img-fluid" alt="">
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>William Anderson</h4>
-            <span>CTO</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{{ asset('assets_two/img/team/team-4.jpg') }}" class="img-fluid" alt="">
-            <div class="social">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Amanda Jepson</h4>
-            <span>Accountant</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
+      @foreach ($teams as $team)
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="team-member">
+                  <div class="member-img">
+                      <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
+                          alt="">
+                      <div class="social">
+                          <a href=""><i class="bi bi-twitter-x"></i></a>
+                          <a href=""><i class="bi bi-facebook"></i></a>
+                          <a href=""><i class="bi bi-instagram"></i></a>
+                          <a href=""><i class="bi bi-linkedin"></i></a>
+                      </div>
+                  </div>
+                  <div class="member-info">
+                      <h4>{{ $team->nama_team}}</h4>
+                      <span>{{ $team->jabatan}}</span>
+                  </div>
+              </div>
+          </div><!-- End Team Member -->
+      @endforeach
     </div>
 
   </div>

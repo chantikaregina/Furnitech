@@ -74,7 +74,7 @@
 
             <div class="footer-top">
             <div class="container">
-                <div class="row gy-4">
+                <div class="row gy-4 justify-content-center">
                     <div class="col-lg-4 col-md-6 footer-about">
                         <a href="index.html" class="logo d-flex align-items-center">
                             <span class="sitename">

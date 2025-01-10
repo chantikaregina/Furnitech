@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimoniController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PortfolioController as FrontendPortfolioController;
@@ -53,6 +54,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/testimoni', [TestimoniController ::class, 'testimoni'])->name('testimoni');
     Route::get('/testimoni/delete/{id_testimoni}', [TestimoniController::class, 'delete'])->name('testimoni.delete');
+
+    Route::get('/team', [TeamController::class, 'team'])->name('team');
+    Route::get('/team/tambah', [TeamController::class, 'create'])->name('team.create');
+    Route::post('/team/tambah', [TeamController::class, 'store'])->name('team.store');
+    Route::get('/team/edit/{id_team}', [TeamController::class, 'edit'])->name('team.edit');
+    Route::put('/team/edit/{id_team}', [TeamController::class, 'update'])->name('team.update');
+    Route::get('/team/delete/{id_team}', [TeamController::class, 'delete'])->name('team.delete');
+
 
 
 });

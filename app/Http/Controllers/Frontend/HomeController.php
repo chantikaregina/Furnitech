@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Testimoni;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,9 +16,9 @@ class HomeController extends Controller
         $services = Service::all();
         $portfolios = Portfolio::all();
         $testimonis = Testimoni::all();
-        return view('frontend.home', compact('services', 'portfolios', 'testimonis'));
+        $teams = Team::all();
+        return view('frontend.home', compact('services', 'portfolios', 'testimonis', 'teams'));
     }
-
 
     public function testimoni(Request $request)
     {
@@ -36,7 +37,5 @@ class HomeController extends Controller
         $komentar->save();
 
         return redirect()->back()->with('success', 'Komentar dan rating berhasil dikirim!');
-
-    }
-    
+    } 
 }
