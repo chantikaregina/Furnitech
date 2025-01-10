@@ -1,80 +1,97 @@
 @extends('frontend.layout.app')
 
 @section('content')
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
 
-<!-- Hero Section -->
-<section id="hero" class="hero section dark-background">
+        <img src="{{ asset('assets_two/img/furniture.jpg') }}" alt="" data-aos="fade-in">
 
-<img src="{{ asset('assets_two/img/furniture.jpg') }}" alt="" data-aos="fade-in">
+        <div class="container">
 
-<div class="container">
+            <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-xl-6 col-lg-8">
+                    <h2>the best furniture solutions<span>.</span></h2>
+                    <p> to beautify your room</p>
+                </div>
+            </div>
 
-  <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-    <div class="col-xl-6 col-lg-8">
-      <h2>the best furniture solutions<span>.</span></h2>
-      <p> to beautify your room</p>
-    </div>
-  </div>
+            <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                @foreach ($services as $service)
+                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box">
+                            <i class="bi bi-binoculars"></i>
+                            <h3><a href="{{ route('service.details') }}">Lorem Ipsum</a></h3>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
 
-  @foreach($services as $service)
-  <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-      <div class="icon-box">
-        <i class="bi bi-binoculars"></i>
-        <h3><a href="{{ route('service.details') }}">Lorem Ipsum</a></h3>
-      </div>
-    </div>
-    </div>
-  @endforeach
-  </div>
+        </div>
 
-</div>
+    </section><!-- /Hero Section -->
 
-</section><!-- /Hero Section -->
+    <!-- About Section -->
+    <section id="about" class="about section">
 
-<!-- About Section -->
-<section id="about" class="about section">
+        <div class="container" data-aos="fade-up" data-aos-delay="500">
 
-  <div class="container" data-aos="fade-up" data-aos-delay="500">
+            <div class="row gy-4">
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <img src="{{ asset('assets_two/img/furniture.1.jpg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 order-2 order-lg-1 content">
+                    <h3 style="font-size: 32px;">get to know furniture</h3>
+                    <p style="font-size: 20px;">
+                        Furnitech adalah perusahaan inovatif yang bergerak di bidang desain, produksi, dan distribusi
+                        furnitur berkualitas tinggi. Berdiri sejak 2024, kami berkomitmen untuk menghadirkan
+                        produk furnitur yang menggabungkan estetika modern, kenyamanan, dan fungsionalitas, sesuai dengan
+                        kebutuhan pelanggan kami.
+                    </p>
+                    <p style="font-size: 20px;">
+                        Our achievements would not have been possible without your help:
+                    </p>
+                    <ul>
+                        <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>1 million++ loyal
+                                customers</span></li>
+                        <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>100,000++ products
+                                available</span></li>
+                        <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>2,000++ interior design projects
+                                every year</span></li>
+                        <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>250++ interior designer partners
+                                who work with us</span></li>
+                    </ul>
+                </div>
+            </div>
 
-    <div class="row gy-4">
-      <div class="col-lg-6 order-1 order-lg-2">
-        <img src="{{ asset('assets_two/img/furniture.1.jpg') }}" class="img-fluid" alt="">
-      </div>
-      <div class="col-lg-6 order-2 order-lg-1 content">
-        <h3 style="font-size: 32px;">get to know furniture</h3>
-        <p style="font-size: 20px;">
-          furnitech is a technology-based company with the aim of making all home & living industry processes efficient through an integrated vertical business.
-        </p>
-        <p style="font-size: 20px;">
-          Our achievements would not have been possible without your help:
-        </p>
-        <ul>
-          <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>1 million++ loyal customers</span></li>
-          <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>100,000++ products available</span></li>
-          <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>2,000++ interior design projects every year</span></li>
-          <li style="font-size: 18px;"><i class="bi bi-check2-all"></i> <span>250++ interior designer partners who work with us</span></li>
-        </ul>
-      </div>
-    </div>
+        </div>
 
-  </div>
+    </section>
+    <!-- /About Section -->
 
-</section>
-<!-- /About Section -->
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
 
-<!-- Clients Section -->
-<section id="clients" class="clients section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="swiper init-swiper">
-      <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
+            <div class="swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+      {
+        "loop": true,
+        "speed": 600,
+        "autoplay": {
+          "delay": 5000
+        },
+        "slidesPerView": "auto",
+        "pagination": {
+          "el": ".swiper-pagination",
+          "type": "bullets",
+          "clickable": true
+        },
+        "breakpoints": {
+          "320": {
+            "slidesPerView": 2,
+            "spaceBetween": 40
           },
           "slidesPerView": "auto",
           "pagination": {
@@ -101,124 +118,144 @@
             }
           }
         }
-      </script>
-      <div class="swiper-wrapper align-items-center">
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja1.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja2.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja3.jpg') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja4.jpeg') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja5.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja6.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja7.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja8.jpeg') }}" class="img-fluid" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
+      }
+    </script>
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja1.png') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja2.png') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja3.jpg') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja4.jpeg') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja5.png') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja6.png') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja7.png') }}" class="img-fluid"
+                            alt=""></div>
+                    <div class="swiper-slide"><img src="{{ asset('assets_two/img/clients/kerja8.jpeg') }}"
+                            class="img-fluid" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
 
-  </div>
-
-</section><!-- /Clients Section -->
-
-<!-- Features Section -->
-<section id="features" class="features section">
-
-  <div class="container">
-
-    <div class="row gy-4">
-      <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="{{ asset('assets_two/img/furniture3.jpg') }}" alt=""></div>
-      <div class="col-lg-6">
-
-        <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <i class="bi bi-archive flex-shrink-0"></i>
-          <div>
-            <h4>Our Vision</h4>
-            <p style="font-size: 18px;">To become a leading furniture producer globally with the best quality products supported by the latest technology, creative human resources and professional service.</p>
-          </div>
-        </div><!-- End Features Item-->
-
-        <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="600">
-          <i class="bi bi-broadcast flex-shrink-0"></i>
-          <div>
-            <h4>Our Mission</h4>
-            <ul>
-              <li style="list-style-type: disc;"><span><p style="font-size: 18px;">to be at the forefront of the furniture manufacturing industry</p></span></li>
-              <li style="list-style-type: disc;"><span><p style="font-size: 18px;">to customer satisfaction and building strong relationships through the supply chain</p></span></li>
-              <li style="list-style-type: disc;"><span><p style="font-size: 18px;">building a good work culture and supporting employee welfare towards a better quality of life</p></span></li>
-            </ul>
-          </div>
-        </div><!-- End Features Item-->
-
-
-
-      </div>
-    </div>
-
-  </div>
-
-</section><!-- /Features Section -->
-
-<!-- Call To Action Section -->
-<section id="call-to-action" class="call-to-action section dark-background">
-
-  <img src="{{ asset('assets_two/img/background2.jpg') }}" alt="">
-
-  <div class="container">
-    <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-      <div class="col-xl-10">
-        <div class="text-center">
-          <h3>Furnitech</h3>
-          <p>Not limited to home contents and furniture, the products and services we offer include:</p>
         </div>
-      </div>
-    </div>
-  </div>
 
-</section><!-- /Call To Action Section -->
+    </section><!-- /Clients Section -->
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
+    <!-- Features Section -->
+    <section id="features" class="features section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Portfolio</h2>
-    <p>Check our Portfolio</p>
-  </div><!-- End Section Title -->
+        <div class="container">
 
-  <div class="container">
+            <div class="row gy-4">
+                <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img
+                        src="{{ asset('assets_two/img/furniture3.jpg') }}" alt=""></div>
+                <div class="col-lg-6">
 
-    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+                    <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <i class="bi bi-archive flex-shrink-0"></i>
+                        <div>
+                            <h4>Our Vision</h4>
+                            <p style="font-size: 18px;">Menjadi penyedia solusi furnitur terdepan yang menginspirasi gaya
+                                hidup modern dengan inovasi, kualitas, dan keberlanjutan.</p>
+                        </div>
+                    </div><!-- End Features Item-->
 
-      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-        <li data-filter="*" class="filter-active">All</li>
-        <li data-filter=".filter-app">App</li>
-        <li data-filter=".filter-product">Card</li>
-        <li data-filter=".filter-branding">Web</li>
-      </ul><!-- End Portfolio Filters -->
-
-      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-        @foreach($portfolios as $portfolio)
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-          <img src="{{ asset('assets_two/img/masonry-portfolio/masonry-portfolio-1.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 1</h4>
-            <p>Lorem ipsum, dolor sit</p>
-            <a href="{{ asset('assets_two/img/masonry-portfolio/masonry-portfolio-1.jpg') }}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-          </div>
-        </div><!-- End Portfolio Item -->
-        @endforeach
-
-      </div><!-- End Portfolio Container -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Portfolio Section -->
+                    <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="600">
+                        <i class="bi bi-broadcast flex-shrink-0"></i>
+                        <div>
+                            <h4>Our Mission</h4>
+                            <ul>
+                                <li style="list-style-type: disc;"><span>
+                                        <p style="font-size: 18px;">Menyediakan Furnitur Berkualitas Tinggi.
+                                            Menghadirkan produk furnitur dengan desain modern, material premium, dan daya
+                                            tahan tinggi untuk memenuhi kebutuhan pelanggan.</p>
+                                    </span></li>
+                                <li style="list-style-type: disc;"><span>
+                                        <p style="font-size: 18px;">Mengutamakan Kepuasan Pelanggan.
+                                            Memberikan layanan terbaik dengan fokus pada kebutuhan dan kenyamanan pelanggan,
+                                            menciptakan pengalaman belanja yang memuaskan.</p>
+                                    </span></li>
+                                <li style="list-style-type: disc;"><span>
+                                        <p style="font-size: 18px;">Mendorong Inovasi dalam Desain.
+                                            Terus menciptakan furnitur fungsional yang memadukan estetika, kenyamanan, dan
+                                            efisiensi ruang.</p>
+                                    </span></li>
+                            </ul>
+                        </div>
+                    </div><!-- End Features Item-->
 
 
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials section dark-background">
+
+                </div>
+            </div>
+
+        </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background">
+
+        <img src="{{ asset('assets_two/img/background2.jpg') }}" alt="">
+
+        <div class="container">
+            <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-xl-10">
+                    <div class="text-center">
+                        <h3>Furnitech</h3>
+                        <p>Not limited to home contents and furniture, the products and services we offer include:</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- /Call To Action Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Portfolio</h2>
+            <p>Check our Portfolio</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                    @foreach ($portfolios as $portfolio)
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{{ asset('assets_two/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{{ asset('assets_two/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
+                                    title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                        class="bi bi-zoom-in"></i></a>
+                                <a href="{{ route('portfolio.details', $portfolio->id_portfolio) }}" title="More Details"
+                                    class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+                    @endforeach
+
+                </div><!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Portfolio Section -->
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section dark-background">
 
   <img src="{{ asset('assets_two/img/background2.jpg') }}" class="testimonials-bg" alt="">
 

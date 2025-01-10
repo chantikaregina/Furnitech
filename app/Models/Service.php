@@ -13,5 +13,6 @@ class Service extends Model
         'company_name',
         'deskripsi',
         'telepon',
+        'foto',
     ];
 }

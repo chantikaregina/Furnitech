@@ -32,9 +32,13 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $testimoni->nama_pelanggan }}</td>
                                     <td>{{ $testimoni->testimoni }}</td>
-                                    <td>{{ $testimoni->rating }}</td>
                                     <td>
-                                        <a href="{{route('testimoni.delete', $testimoni->id_testimoni)}}"
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="fa fa-star {{ $i <= $testimoni->rating ? 'text-warning' : '' }}"></i>
+                                        @endfor
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('testimoni.delete', $testimoni->id_testimoni) }}"
                                             onclick="return confirm('Yakin Ingin Hapus Data?')"
                                             class="btn btn-danger btn-sm">Hapus</a>
 

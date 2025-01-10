@@ -25,12 +25,24 @@ class ServiceController extends Controller
             'company_name' => 'required',
             'deskripsi' => 'required',
             'telepon' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $foto = null;
+
+        if ($request->hasFile('foto')) {
+            $uniqueFile = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_service', $uniqueFile, 'public');
+
+            $foto = 'foto_service/' . $uniqueFile;
+        }
 
         Service::create([
             'company_name' => $request->company_name,
             'deskripsi' => $request->deskripsi,
             'telepon' => $request->telepon,
+            'foto' => $foto,
         ]);
 
         return redirect()->route('service')->with('success', 'Service Berhasil di Tambah');
@@ -54,12 +66,25 @@ class ServiceController extends Controller
             'company_name' => 'required',
             'deskripsi' => 'required',
             'telepon' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $foto = null;
+
+        if ($request->hasFile('foto')) {
+            $uniqueFile = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_service', $uniqueFile, 'public');
+
+            $foto = 'foto_service/' . $uniqueFile;
+        }
+
 
         $service->update([
             'company_name' => $request->company_name,
             'deskripsi' => $request->deskripsi,
             'telepon' => $request->telepon,
+            'foto' => $foto,
         ]);
 
         return redirect()->route('service')->with('success', 'Service Berhasil di Update');

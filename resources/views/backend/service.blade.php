@@ -23,6 +23,7 @@
                                 <th scope="col">Perusahaan</th>
                                 <th scope="col">Deskripsi</th>
                                 <th scope="col">Telepon</th>
+                                <th scope="col">Foto</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -33,6 +34,9 @@
                                     <td>{{ $service->company_name }}</td>
                                     <td>{{ $service->deskripsi }}</td>
                                     <td>{{ $service->telepon }}</td>
+                                    <td>
+                                        <img src="{{ asset('storage/' . $service->foto) }}" alt="" width="30">
+                                    </td>
                                     <td>
                                         <a href="{{route('service.edit', $service->id_service)}}"
                                             class="btn btn-primary btn-sm">Edit</a>
