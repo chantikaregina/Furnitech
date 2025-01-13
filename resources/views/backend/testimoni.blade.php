@@ -31,12 +31,13 @@
                             @foreach ($testimonis as $testimoni)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $testimoni->nama_pelanggan }}</td>
+                                    <td>{{ $testimoni->name }}</td>
                                     <td>{{ $testimoni->email }}</td>
-                                    <td>{{ $testimoni->komentar }}</td>
+                                    <td>{{ $testimoni->review }}</td>
                                     <td>
                                         @for ($i = 1; $i <= 5; $i++)
-                                            <i class="fa fa-star {{ $i <= $testimoni->rating ? 'text-warning' : '' }}"></i>
+                                            <i
+                                                class="fa fa-star {{ $i <= $testimoni->rating ? 'text-warning' : '' }}"></i>
                                         @endfor
                                     </td>
                                     <td>

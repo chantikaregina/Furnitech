@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('testimonis', function (Blueprint $table) {
             $table->integer('id_testimoni')->primary()->autoIncrement();
-            $table->string('nama_pelanggan', 50);
-            $table->string('testimoni');
+            $table->string('name', 50);
+            $table->string('email');
+            $table->string('review');
             $table->integer('rating');
             $table->timestamps();
         });

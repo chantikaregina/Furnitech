@@ -10,8 +10,16 @@
 
             <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-xl-6 col-lg-8">
-                    <h2>{{ $companyInfo->slogan }}<span>.</span></h2>
-                    <p>{{ $companyInfo->deskripsi }}</p>
+                    @if ($companyInfo && $companyInfo->slogan)
+                        <h2>{{ $companyInfo->slogan }}<span>.</span></h2>
+                    @else
+                        Name tidak ditemukan
+                    @endif
+                    @if ($companyInfo && $companyInfo->deskripsi)
+                        <p>{{ $companyInfo->deskripsi }}</p>
+                    @else
+                        Name tidak ditemukan
+                    @endif
                 </div>
             </div>
 
@@ -42,12 +50,20 @@
 
             <div class="row gy-4">
                 <div class="col-lg-6 order-1 order-lg-2">
-                    <img src="{{ asset('storage/' . $about->foto1) }}" class="img-fluid" alt="">
+                    @if ($about && $about->foto1)
+                        <img src="{{ asset('storage/' . $about->foto1) }}" class="img-fluid" alt="">
+                    @else
+                        Name tidak ditemukan
+                    @endif
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1 content">
                     <h3 style="font-size: 32px;">get to know furniture</h3>
                     <p style="font-size: 20px;">
-                        {{ $about->background }}
+                        @if ($about && $about->background)
+                            {{ $about->background }}
+                        @else
+                            Name tidak ditemukan
+                        @endif
                     </p>
                 </div>
             </div>
@@ -139,15 +155,27 @@
         <div class="container">
 
             <div class="row gy-4">
-                <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img
-                        src="{{ asset('storage/' . $about->foto2) }}" alt=""></div>
+                <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    @if ($about && $about->foto2)
+                        <img src="{{ asset('storage/' . $about->foto2) }}" alt="">
+                    @else
+                        Name tidak ditemukan
+                    @endif
+                </div>
+
                 <div class="col-lg-6">
 
                     <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="100">
                         <i class="bi bi-archive flex-shrink-0"></i>
                         <div>
                             <h4>Our Vision</h4>
-                            <p style="font-size: 18px;">{{ $about->visi }}</p>
+                            <p style="font-size: 18px;">
+                                @if ($about && $about->visi)
+                                    {{ $about->visi }}
+                                @else
+                                    Name tidak ditemukan
+                                @endif
+                            </p>
                         </div>
                     </div><!-- End Features Item-->
 
@@ -157,7 +185,13 @@
                             <h4>Our Mission</h4>
                             <ul>
                                 <li style="list-style-type: disc;"><span>
-                                        <p style="font-size: 18px;">{{ $about->misi }}</p>
+                                        <p style="font-size: 18px;">
+                                            @if ($about && $about->misi)
+                                                {{ $about->misi }}
+                                            @else
+                                                Name tidak ditemukan
+                                            @endif
+                                        </p>
                                     </span></li>
                             </ul>
                         </div>
@@ -210,8 +244,8 @@
                                 style="width: 450px; height: 450px; object-fit: cover;">
                             <div class="portfolio-info">
                                 <h4>{{ $portfolio->project_name }}</h4>
-                                <a href="{{ asset('storage/' . $portfolio->foto) }}"
-                                    title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                <a href="{{ asset('storage/' . $portfolio->foto) }}" title=""
+                                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="{{ route('portfolio.details', $portfolio->id_portfolio) }}" title="More Details"
                                     class="details-link"><i class="bi bi-link-45deg"></i></a>
@@ -260,7 +294,7 @@
                                 <div class="stars justify-content-center">
                                     @for ($i = 1; $i <= 5; $i++)
                                         <i
-                                            class=" {{ $i <= $testimoni->rating ? 'bi bi-star-fill' : 'bi bi-star' }} "></i>
+                                            class="{{ $i <= $testimoni->rating ? 'bi bi-star-fill' : 'bi bi-star' }} "></i>
                                     @endfor
                                 </div>
                                 <p>
@@ -420,8 +454,8 @@
 
                     /* Remove hover effect */
                     /* .star:hover i, .star:hover ~ .star i {
-          color: #f39c12;
-        } */
+                                  color: #f39c12;
+                                } */
 
                     .star i.bi-star-fill {
                         color: #f39c12;

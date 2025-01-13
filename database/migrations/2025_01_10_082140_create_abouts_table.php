@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->integer('id_about')->primary()->autoIncrement();
-            $table->string('background', 255);
-            $table->string('visi', 255);
-            $table->string('misi', 255);
+            $table->text('background');
+            $table->text('visi', 255);
+            $table->text('misi', 255);
             $table->string('foto1')->nullable();
             $table->string('foto2')->nullable();
             $table->timestamps();

@@ -33,7 +33,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="project_date" class="form-label">Tanggal Projek</label>
-                                <input type="date" class="form-control" id="project_date" name="project_date" value="{{ old('project_date', $portfolio->project_name) }}">
+                                <input type="date" class="form-control" id="project_date" name="project_date" value="{{ old('project_date', $portfolio->project_date) }}">
                                 <div class="text-danger">
                                     @error('project_date')
                                         {{ $message }}

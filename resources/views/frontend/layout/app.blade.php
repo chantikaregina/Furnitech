@@ -46,7 +46,13 @@
             <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename" style="color: rgba(0, 0, 0, 0.8);">{{ $companyInfo->company_name }}</h1>
+                <h1 class="sitename" style="color: rgba(0, 0, 0, 0.8);">
+                    @if ($companyInfo && $companyInfo->company_name)
+                        {{ $companyInfo->company_name }}
+                    @else
+                        Name tidak ditemukan
+                    @endif
+                </h1>
                 <span>.</span>
             </a>
 
@@ -72,13 +78,13 @@
 
     <footer id="footer" class="footer dark-background">
 
-            <div class="footer-top">
+        <div class="footer-top">
             <div class="container">
                 <div class="row gy-4 justify-content-center">
                     <div class="col-lg-4 col-md-6 footer-about">
                         <a href="index.html" class="logo d-flex align-items-center justify-content-center">
                             <span class="sitename">
-                                @if($companyInfo && $companyInfo->company_name)
+                                @if ($companyInfo && $companyInfo->company_name)
                                     {{ $companyInfo->company_name }}
                                 @else
                                     Name tidak ditemukan
@@ -89,30 +95,30 @@
                         <div class="footer-contact pt-3 d-flex" style="column-gap: 10px;">
                             <div class="contact-info">
                                 <p><strong>Alamat:</strong> <span>
-                                    @if ($companyInfo && $companyInfo->alamat)
-                                        {{ $companyInfo->alamat }}
-                                    @else
-                                        Telepon Kosong
-                                    @endif
-                                </span></p>
+                                        @if ($companyInfo && $companyInfo->alamat)
+                                            {{ $companyInfo->alamat }}
+                                        @else
+                                            Telepon Kosong
+                                        @endif
+                                    </span></p>
                             </div>
                             <div class="contact-info">
                                 <p><strong>Phone:</strong> <span>
-                                    @if ($companyInfo && $companyInfo->telepon)
-                                        {{ $companyInfo->telepon }}
-                                    @else
-                                        Telepon Kosong
-                                    @endif
-                                </span></p>
+                                        @if ($companyInfo && $companyInfo->telepon)
+                                            {{ $companyInfo->telepon }}
+                                        @else
+                                            Telepon Kosong
+                                        @endif
+                                    </span></p>
                             </div>
                             <div class="contact-info">
                                 <p><strong>Email:</strong> <span>
-                                    @if ($companyInfo && $companyInfo->email)
-                                        {{ $companyInfo->email }}
-                                    @else
-                                        Email Kosong
-                                    @endif
-                                </span></p>
+                                        @if ($companyInfo && $companyInfo->email)
+                                            {{ $companyInfo->email }}
+                                        @else
+                                            Email Kosong
+                                        @endif
+                                    </span></p>
                             </div>
                         </div>
                         <div class="social-links d-flex mt-4 justify-content-center">
