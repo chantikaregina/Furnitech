@@ -236,10 +236,9 @@
                             <img src="{{ asset('storage/' . $portfolio->foto) }}"
                                 class="img-fluid" alt="" style="width: 450px; height: 450px; object-fit: cover;">
                             <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <h4>{{ $portfolio->project_name }}</h4>
                                 <a href="{{ asset('storage/' . $portfolio->foto) }}"
-                                    title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                                    title="" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
                                 <a href="{{ route('portfolio.details', $portfolio->id_portfolio) }}" title="More Details"
                                     class="details-link"><i class="bi bi-link-45deg"></i></a>
