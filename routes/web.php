@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\Auth\UserLoginController;
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\ProductController;
@@ -61,6 +63,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/team/edit/{id_team}', [TeamController::class, 'edit'])->name('team.edit');
     Route::put('/team/edit/{id_team}', [TeamController::class, 'update'])->name('team.update');
     Route::get('/team/delete/{id_team}', [TeamController::class, 'delete'])->name('team.delete');
+
+    Route::get('/about', [AboutController::class, 'about'])->name('about');
+    Route::get('/about/tambah', [AboutController::class, 'create'])->name('about.create');
+    Route::post('/about/tambah', [AboutController::class, 'store'])->name('about.store');
+    Route::get('/about/edit/{id_about}', [AboutController::class, 'edit'])->name('about.edit');
+    Route::put('/about/edit/{id_about}', [AboutController::class, 'update'])->name('about.update');
+    Route::get('/about/delete/{id_about}', [AboutController::class, 'delete'])->name('about.delete');
 
 
 

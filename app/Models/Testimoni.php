@@ -10,9 +10,9 @@ class Testimoni extends Model
     protected  $primaryKey = 'id_testimoni';
 
     protected $fillable = [
-        'name',
+        'nama_pelanggan',
         'email',
-        'review',
+        'komentar',
         'rating',
     ];
 }

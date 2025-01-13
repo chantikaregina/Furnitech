@@ -21,7 +21,8 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Pelanggan</th>
-                                <th scope="col">Testimoni</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Komentar</th>
                                 <th scope="col">Rating</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -31,7 +32,8 @@
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $testimoni->nama_pelanggan }}</td>
-                                    <td>{{ $testimoni->testimoni }}</td>
+                                    <td>{{ $testimoni->email }}</td>
+                                    <td>{{ $testimoni->komentar }}</td>
                                     <td>
                                         @for ($i = 1; $i <= 5; $i++)
                                             <i class="fa fa-star {{ $i <= $testimoni->rating ? 'text-warning' : '' }}"></i>

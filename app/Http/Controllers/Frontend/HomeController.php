@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
+use App\Models\CompanyInfo;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Testimoni;
@@ -17,7 +19,9 @@ class HomeController extends Controller
         $portfolios = Portfolio::all();
         $testimonis = Testimoni::all();
         $teams = Team::all();
-        return view('frontend.home', compact('services', 'portfolios', 'testimonis', 'teams'));
+        $companyinfos = CompanyInfo::all();
+        $about = About::first();
+        return view('frontend.home', compact('services', 'portfolios', 'testimonis', 'teams', 'companyinfos', 'about'));
     }
 
     public function testimoni(Request $request)
@@ -26,7 +30,7 @@ class HomeController extends Controller
             'name' => 'required',
             'email' => 'required',
             'review' => 'required|string|max:1000',
-            'rating' => 'required|integer|min:1|max:5',  
+            'rating' => 'required|integer|min:1|max:5',
         ]);
 
         $komentar = new Testimoni();
@@ -36,6 +40,6 @@ class HomeController extends Controller
         $komentar->rating = $request->input('rating');
         $komentar->save();
 
-        return redirect()->back()->with('success', 'Komentar dan rating berhasil dikirim!');
-    } 
+        return redirect()->back()->with('success', 'Komentar dan Rating Berhasil Dikirim!');
+    }
 }
