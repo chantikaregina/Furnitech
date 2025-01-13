@@ -83,12 +83,21 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{route('team')}}" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('team') }}" aria-expanded="false">
                                 <span>
                                     <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6"
                                         class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Team</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{route('about')}}" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:sticker-smile-circle-2-bold-duotone"
+                                        class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">About</span>
                             </a>
                         </li>
                 </nav>

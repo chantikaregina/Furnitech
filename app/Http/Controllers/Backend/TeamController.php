@@ -58,7 +58,6 @@ class TeamController extends Controller
 
     public function update(Request $request, string $id)
     {
-
         $team = Team::find($id);
 
         $request->validate([
