@@ -51,7 +51,7 @@
             <div class="row gy-4">
                 <div class="col-lg-6 order-1 order-lg-2">
                     @if ($about && $about->foto1)
-                        <img src="{{ asset('storage/' . $about->foto1) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('storage/' . $about->foto1) }}" class="img-fluid" alt="" height="50">
                     @else
                         Name tidak ditemukan
                     @endif
