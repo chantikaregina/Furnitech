@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Perusahaan</th>
+                                <th scope="col">Service Name</th>
                                 <th scope="col">Deskripsi</th>
                                 <th scope="col">Telepon</th>
                                 <th scope="col">Foto</th>
@@ -31,7 +31,7 @@
                             @foreach ($services as $service)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $service->company_name }}</td>
+                                    <td>{{ $service->service_name }}</td>
                                     <td>{{ $service->deskripsi }}</td>
                                     <td>{{ $service->telepon }}</td>
                                     <td>

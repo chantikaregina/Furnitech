@@ -9,7 +9,7 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets_two/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets_two/img/furni.png') }}" rel="icon">
     <link href="{{ asset('assets_two/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
@@ -38,6 +38,23 @@
   ======================================================== -->
 </head>
 
+<style>
+    /* Gaya default untuk link menu */
+    .navmenu ul li a {
+        color: rgba(0, 0, 0, 0.8);
+        /* Warna default */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        /* Transisi untuk efek halus */
+    }
+
+    /* Gaya aktif untuk link menu */
+    .navmenu ul li a.active {
+        color: #ffc451;
+        /* Warna kuning saat aktif */
+    }
+</style>
+
 <body class="index-page">
 
     <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: white;">
@@ -58,9 +75,9 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('home') }}" class="active" style="color: rgba(0, 0, 0, 0.8);">Home<br></a>
+                    <li><a href="#hero" class="active">Home<br></a>
                     </li>
-                    <li><a href="#portfolio" style="color: rgba(0, 0, 0, 0.8);">Portfolio</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -142,8 +159,8 @@
                     <!-- You can delete the links only if you've purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-                        href="https://themewagon.com">ThemeWagon</a>
+                    Designed by <a href="">{{ $companyInfo->company_name }}</a> Distributed by <a
+                        href="">{{ $companyInfo->company_name }}</a>
                 </div>
             </div>
         </div>
@@ -168,6 +185,36 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('assets_two/js/main.js') }}"></script>
+
+    <script>
+        // Pilih semua link menu
+        const menuLinks = document.querySelectorAll('.navmenu ul li a');
+
+        // Fungsi untuk menghapus class "active" dari semua link
+        function removeActiveClasses() {
+            menuLinks.forEach(link => link.classList.remove('active'));
+        }
+
+        // Fungsi untuk menambahkan class "active" pada link yang sesuai
+        function setActiveLink() {
+            const scrollPosition = window.scrollY;
+
+            menuLinks.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
+
+                if (
+                    section.offsetTop <= scrollPosition + 50 && // Tambahkan offset jika diperlukan
+                    section.offsetTop + section.offsetHeight > scrollPosition
+                ) {
+                    removeActiveClasses();
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Tambahkan event listener untuk scroll
+        window.addEventListener('scroll', setActiveLink);
+    </script>
 
 </body>
 

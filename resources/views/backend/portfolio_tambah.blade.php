@@ -23,7 +23,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                                <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control"></textarea>
                                 <div class="text-danger">
                                     @error('deskripsi')
                                         {{ $message }}

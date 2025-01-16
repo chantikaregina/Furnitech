@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyInfoController extends Controller
 {
@@ -66,7 +67,12 @@ class CompanyInfoController extends Controller
 
     public function create()
     {
-        return view('backend.companyinfo_tambah');
+        $companyInfo = CompanyInfo::first();
+        if ($companyInfo) {
+            return redirect()->back();
+        }else{
+            return view('backend.companyinfo_tambah');
+        }
     }
 
     public function store(Request $request)
@@ -78,7 +84,7 @@ class CompanyInfoController extends Controller
             'tahun_berdiri' => 'required',
             'alamat' => 'required',
             'email' => 'required',
-            'telepon' => 'required',
+            'telepon' => 'required|numeric|digits_between:1,12',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -127,13 +133,16 @@ class CompanyInfoController extends Controller
             'tahun_berdiri' => 'required',
             'alamat' => 'required',
             'email' => 'required',
-            'telepon' => 'required',
+            'telepon' => 'required|numeric|digits_between:1,12',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $logo = null;
+        $logo = $companyinfo->logo;
 
         if ($request->hasFile('logo')) {
+            if ($logo)  {
+                Storage::disk('public')->delete($logo);
+            }
             $uniqueFile = uniqid() . '_' . $request->file('logo')->getClientOriginalName();
 
             $request->file('logo')->storeAs('logo_companyinfo', $uniqueFile, 'public');
@@ -158,6 +167,14 @@ class CompanyInfoController extends Controller
     public function delete(Request $request, $id)
     {
         $companyinfo = CompanyInfo::find($id);
+
+        if ($companyinfo->logo) {
+            $logo = $companyinfo->logo;
+
+            if (Storage::disk('public')->exists($logo)) {
+                Storage::disk('public')->delete($logo);
+            }
+        }
 
         $companyinfo->delete();
 

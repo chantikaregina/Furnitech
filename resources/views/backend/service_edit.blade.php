@@ -14,10 +14,10 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="company_name" class="form-label">Perusahaan</label>
-                                <input type="text" class="form-control" id="company_name" name="company_name" value="{{ old('company_name', $service->company_name) }}">
+                                <label for="service_name" class="form-label">Service Name</label>
+                                <input type="text" class="form-control" id="service_name" name="service_name" value="{{ old('service_name', $service->service_name) }}">
                                 <div class="text-danger">
-                                    @error('company_name')
+                                    @error('service_name')
                                         {{ $message }}
                                     @enderror
                                 </div>

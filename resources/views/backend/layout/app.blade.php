@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Furnitech</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/seodashlogo.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/furni.png') }}" />
     <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />

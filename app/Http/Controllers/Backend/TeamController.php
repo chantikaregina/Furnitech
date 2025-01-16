@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -63,12 +64,15 @@ class TeamController extends Controller
         $request->validate([
             'jabatan' => 'required',
             'nama_team' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $foto = null;
+        $foto = $team->foto;
 
         if ($request->hasFile('foto')) {
+            if ($foto)  {
+                Storage::disk('public')->delete($foto);
+            }
             $uniqueFile = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
 
             $request->file('foto')->storeAs('foto_team', $uniqueFile, 'public');
@@ -89,8 +93,16 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
 
+        if ($team->foto) {
+            $foto = $team->foto;
+
+            if (Storage::disk('public')->exists($foto)) {
+                Storage::disk('public')->delete($foto);
+            }
+        }
+
         $team->delete();
 
-        return redirect()->route('team')->with('success', 'Team Berhasil di Hapus');
+        return redirect()->route('team')->with('success', 'Team Berhasil di Hapus.');
     }
 }

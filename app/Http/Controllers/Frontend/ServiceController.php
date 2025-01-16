@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     public function service($id){
-     
+
         $service = Service::find($id);
         return view('frontend.service_details', compact('service'));
 
     }
 
-   
+
 }

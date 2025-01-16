@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -22,9 +23,9 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'company_name' => 'required',
+            'service_name' => 'required',
             'deskripsi' => 'required',
-            'telepon' => 'required',
+            'telepon' => 'required|numeric|digits_between:1,12',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -39,7 +40,7 @@ class ServiceController extends Controller
         }
 
         Service::create([
-            'company_name' => $request->company_name,
+            'service_name' => $request->service_name,
             'deskripsi' => $request->deskripsi,
             'telepon' => $request->telepon,
             'foto' => $foto,
@@ -63,15 +64,18 @@ class ServiceController extends Controller
         $service = Service::find($id);
 
         $request->validate([
-            'company_name' => 'required',
+            'service_name' => 'required',
             'deskripsi' => 'required',
-            'telepon' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'telepon' => 'required|numeric|digits_between:1,12',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $foto = null;
+        $foto = $service->foto;
 
         if ($request->hasFile('foto')) {
+            if ($foto)  {
+                Storage::disk('public')->delete($foto);
+            }
             $uniqueFile = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
 
             $request->file('foto')->storeAs('foto_service', $uniqueFile, 'public');
@@ -79,9 +83,8 @@ class ServiceController extends Controller
             $foto = 'foto_service/' . $uniqueFile;
         }
 
-
         $service->update([
-            'company_name' => $request->company_name,
+            'service_name' => $request->service_name,
             'deskripsi' => $request->deskripsi,
             'telepon' => $request->telepon,
             'foto' => $foto,
@@ -94,9 +97,17 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
 
+        if ($service->foto) {
+            $foto = $service->foto;
+
+            if (Storage::disk('public')->exists($foto)) {
+                Storage::disk('public')->delete($foto);
+            }
+        }
+
         $service->delete();
 
-        return redirect()->route('service')->with('success', 'Service Berhasil di Hapus');
+        return redirect()->route('service')->with('success', 'Service Berhasil di Hapus.');
     }
 
 

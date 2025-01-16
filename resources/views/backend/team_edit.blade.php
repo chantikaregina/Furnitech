@@ -15,7 +15,21 @@
                             @method('PUT')
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan', $team->jabatan) }}">
+                                <select id="jabatan" name="jabatan" class="form-select">
+                                    <option value="" disabled selected>Pilih Jabatan</option>
+                                    <option value="CEO (Chief Executive Officer)" <?= $team->jabatan == 'CEO (Chief Executive Officer)' ? 'selected' : '' ?>>CEO (Chief Executive Officer)</option>
+                                    <option value="CTO (Chief Technology Officer)" <?= $team->jabatan == 'CTO (Chief Technology Officer)' ? 'selected' : '' ?>>CTO (Chief Technology Officer)</option>
+                                    <option value="CFO (Chief Financial Officer)"<?= $team->jabatan == 'CFO (Chief Financial Officer)' ? 'selected' : '' ?>>CFO (Chief Financial Officer)</option>
+                                    <option value="Manager HR" <?= $team->jabatan == 'Manager HR' ? 'selected' : '' ?> >Manager HR</option>
+                                    <option value="Manager Marketing" <?= $team->jabatan == 'Manager Marketing' ? 'selected' : '' ?>>Manager Marketing</option>
+                                    <option value="Manager Production"<?= $team->jabatan == 'Manager Production' ? 'selected' : '' ?>>Manager Production</option>
+                                    <option value="Designer"<?= $team->jabatan == 'Designer' ? 'selected' : '' ?>>Designer</option>
+                                    <option value="Engineer"<?= $team->jabatan == 'Engineer' ? 'selected' : '' ?>>Engineer</option>
+                                    <option value="Staff Admin"<?= $team->jabatan == 'Staff Admin' ? 'selected' : '' ?>>Staff Admin</option>
+                                    <option value="Staff Sales"<?= $team->jabatan == 'Staff Sales' ? 'selected' : '' ?>>Staff Sales</option>
+                                    <option value="Technician"<?= $team->jabatan == 'Technician' ? 'selected' : '' ?>>Technician</option>
+                                    <option value="Intern"<?= $team->jabatan == 'Intern' ? 'selected' : '' ?>>Intern</option>
+                                </select>
                                 <div class="text-danger">
                                     @error('jabatan')
                                         {{ $message }}

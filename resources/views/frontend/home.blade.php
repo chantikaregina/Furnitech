@@ -30,7 +30,7 @@
                             <i class="bi bi-binoculars"></i>
                             <!-- Menggunakan properti 'name' dari objek $service untuk menampilkan nama layanan -->
                             <h3><a
-                                    href="{{ route('service.details', $service->id_service) }}">{{ $service->company_name }}</a>
+                                    href="{{ route('service.details', $service->id_service) }}">{{ $service->service_name }}</a>
                             </h3>
                         </div>
                     </div>
@@ -330,7 +330,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="team-member">
                             <div class="member-img">
-                                <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid" alt="">
+                                <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid" alt="" style="width: 500px; height: 300px; object-fit: cover;">
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter-x"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -481,4 +481,12 @@
             </div>
         </div>
     </section><!-- /Review Section -->
+
+    @if(@session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            alert(" {{ session('success') }}");
+        })
+    </script>
+    @endif
 @endsection

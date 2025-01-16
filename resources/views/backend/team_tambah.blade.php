@@ -14,7 +14,21 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" id="jabatan" name="jabatan">
+                                <select id="jabatan" name="jabatan" class="form-select">
+                                    <option value="" disabled selected>Pilih Jabatan</option>
+                                    <option value="CEO (Chief Executive Officer)">CEO (Chief Executive Officer)</option>
+                                    <option value="CTO (Chief Technology Officer)">CTO (Chief Technology Officer)</option>
+                                    <option value="CFO (Chief Financial Officer)">CFO (Chief Financial Officer)</option>
+                                    <option value="Manager HR">Manager HR</option>
+                                    <option value="Manager Marketing">Manager Marketing</option>
+                                    <option value="Manager Production">Manager Production</option>
+                                    <option value="Designer">Designer</option>
+                                    <option value="Engineer">Engineer</option>
+                                    <option value="Staff Admin">Staff Admin</option>
+                                    <option value="Staff Sales">Staff Sales</option>
+                                    <option value="Technician">Technician</option>
+                                    <option value="Intern">Intern</option>
+                                </select>
                                 <div class="text-danger">
                                     @error('jabatan')
                                         {{ $message }}

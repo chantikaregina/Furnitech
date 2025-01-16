@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -69,9 +70,12 @@ class PortfolioController extends Controller
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $foto = null;
+        $foto = $portfolio->foto;
 
         if ($request->hasFile('foto')) {
+            if ($foto)  {
+                Storage::disk('public')->delete($foto);
+            }
             $uniqueFile = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
 
             $request->file('foto')->storeAs('foto_portfolio', $uniqueFile, 'public');
@@ -93,9 +97,17 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::find($id);
 
+        if ($portfolio->foto) {
+            $foto = $portfolio->foto;
+
+            if (Storage::disk('public')->exists($foto)) {
+                Storage::disk('public')->delete($foto);
+            }
+        }
+
         $portfolio->delete();
 
-        return redirect()->route('portfolio')->with('success', 'Portfolio Berhasil di Hapus');
+        return redirect()->route('portfolio')->with('success', 'Perusahaan Berhasil di Hapus.');
     }
 
     /**
